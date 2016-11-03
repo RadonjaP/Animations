@@ -1,0 +1,17 @@
+package animation.main;
+
+import javax.swing.JPanel;
+
+import animation.object.BallObject;
+
+public class AnimationPanel extends JPanel {
+
+	private static final long serialVersionUID = 1L;
+	private BallObject = new BallObject();
+
+	public AnimationPanel() {
+		this.setSize(Constants.PANEL_WIDTH, Constants.PANEL_HEIGHT);
+		this.setVisible(true);
+	}
+	
+}

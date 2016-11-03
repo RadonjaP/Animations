@@ -1,0 +1,26 @@
+package animation.object;
+
+import javax.swing.SpringLayout.Constraints;
+
+public class BallObject extends AbstractAnimationObject {
+
+	private Integer radius;
+	
+	public BallObject(Integer x, Integer y) {
+		super(x, y);
+		//this.radius =
+	}
+
+	@Override
+	public void move(Integer x, Integer y) {
+		// TODO Auto-generated method stub
+		
+	}
+
+	@Override
+	public void draw() {
+		// TODO Auto-generated method stub
+		
+	}
+
+}

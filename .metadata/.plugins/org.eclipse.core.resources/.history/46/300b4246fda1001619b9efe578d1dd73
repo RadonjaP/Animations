@@ -1,0 +1,7 @@
+
+public class AnimationObject {
+
+	private Integer x;
+	private Integer y;
+	
+}

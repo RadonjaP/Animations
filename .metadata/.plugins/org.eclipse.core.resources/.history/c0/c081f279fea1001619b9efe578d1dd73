@@ -1,0 +1,16 @@
+package animation.object;
+
+import java.awt.Color;
+
+public abstract class AbstractAnimationObject {
+
+	private Integer x;
+	private Integer y;
+	
+	private Color color;
+	
+	public AbstractAnimationObject() {
+		
+	}
+	
+}

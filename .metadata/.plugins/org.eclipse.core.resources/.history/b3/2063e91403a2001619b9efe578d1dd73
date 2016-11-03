@@ -1,0 +1,33 @@
+package animation.object;
+
+import java.awt.Color;
+import java.awt.Graphics2D;
+
+import animation.main.Constants;
+
+public class BallObject extends AbstractAnimationObject {
+
+	private Integer radius;
+	
+	public BallObject(Integer x, Integer y) {
+		super(x, y);
+		this.radius = Constants.OBJECT_BALL_RADIUS;
+	}
+
+	@Override
+	public void move(Integer x, Integer y) {
+		this.x = x;
+		this.y = y;
+	}
+
+	@Override
+	public void draw(Graphics2D g) {
+		g.setPaint(color);
+		g.fillOval(x, y, radius, radius);
+		g.setColor(Color.white);
+		g.fillOval(x + 5, y + 5,
+				(int)Math.round(radius - (radius * 0.75)), 
+				(int)Math.round(radius - (radius * 0.35)));
+	}
+
+}

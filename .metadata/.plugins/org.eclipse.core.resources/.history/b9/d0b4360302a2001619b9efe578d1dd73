@@ -1,0 +1,25 @@
+package animation.main;
+
+import java.awt.Graphics;
+
+import javax.swing.JPanel;
+
+import animation.object.BallObject;
+
+public class AnimationPanel extends JPanel {
+
+	private static final long serialVersionUID = 1L;
+	private BallObject object = new BallObject(Constants.PANEL_WIDTH / 2 - Constants.OBJECT_BALL_RADIUS / 2,
+			Constants.PANEL_HEIGHT / 2 - Constants.OBJECT_BALL_RADIUS / 2);
+
+	public AnimationPanel() {
+		this.setSize(Constants.PANEL_WIDTH, Constants.PANEL_HEIGHT);
+		this.setVisible(true);
+	}
+	
+	@Override
+	public void paintComponent(Graphics g) {
+		
+	}
+	
+}

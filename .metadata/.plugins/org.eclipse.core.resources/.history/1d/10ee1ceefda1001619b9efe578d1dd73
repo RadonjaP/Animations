@@ -1,0 +1,7 @@
+package animation.object;
+
+public interface AnimationObject {
+
+	Integer x;
+	
+}

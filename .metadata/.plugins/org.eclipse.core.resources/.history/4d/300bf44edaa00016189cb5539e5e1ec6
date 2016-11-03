@@ -1,8 +1,0 @@
-
-public class AnimationObject {
-
-	private Integer posX;
-	private Integer posY;
-	
-	
-}

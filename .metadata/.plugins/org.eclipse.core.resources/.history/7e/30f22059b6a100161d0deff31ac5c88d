@@ -18,7 +18,7 @@ public class Settings {
 	public static final Color OBJECT_COLOR = Color.red;
 	
 	// Animation constants
-	public static final int TIMER_DELAY = 5;
+	public static final int TIMER_DELAY = 1;
 	
 	public static final int RANDOM_NUM_RANGE_X = PANEL_WIDTH - 20;
 	public static final int RANDOM_NUM_RANGE_Y = PANEL_HEIGHT - 20;

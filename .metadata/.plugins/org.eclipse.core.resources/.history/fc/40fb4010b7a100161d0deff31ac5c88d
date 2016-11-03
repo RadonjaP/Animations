@@ -23,7 +23,7 @@ public class AnimationObject {
 		g.setColor(color);
 		g.fillOval(posX, posY, width, height);
 		g.setColor(Color.white);
-		g.fillOval(posX + 5, posY + 5, width / 2, height - 30);
+		g.fillOval(posX + 10, posY + 10, 23, 40);
 	}
 	
 	public void move(Integer posX, Integer posY) {

@@ -21,9 +21,9 @@ public class AnimationObject {
 	
 	public void draw(Graphics g) {
 		g.setColor(color);
+		g.drawOval(posX, posY, width, height);
+		g.setColor(white);
 		g.fillOval(posX, posY, width, height);
-		g.setColor(Color.white);
-		g.fillOval(posX + 5, posY + 5, width / 2, height - 30);
 	}
 	
 	public void move(Integer posX, Integer posY) {

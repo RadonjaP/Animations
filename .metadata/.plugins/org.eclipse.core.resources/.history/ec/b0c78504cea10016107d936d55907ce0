@@ -1,0 +1,57 @@
+import java.awt.Point;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
+import java.util.Random;
+
+import javax.swing.JFrame;
+import javax.swing.Timer;
+
+
+public class MainFrame extends JFrame {
+
+	private static final long serialVersionUID = 1L;
+	
+	private Timer timer;
+	private ActionListener moveAction;
+	private AnimationContainer container;
+	private AlgorithmContainer alghCont;
+	private Random r = new Random();
+	
+	public MainFrame() {
+		container = new AnimationContainer();
+		alghCont = new AlgorithmContainer();
+		
+		this.setSize(Settings.FRAME_WIDTH, Settings.FRAME_HEIGHT);
+		this.setTitle("Animation");
+		this.setDefaultCloseOperation(EXIT_ON_CLOSE);
+		this.setVisible(true);
+		this.getContentPane().add(container);
+
+		this.moveAction = new ActionListener() {
+			@Override
+			public void actionPerformed(ActionEvent e) {
+				Integer locationX = r.nextInt(Settings.PANEL_WIDTH);
+				Integer locationY = r.nextInt(Settings.PANEL_HEIGHT);
+				//while (true) {
+					Point nextPos = alghCont.getPosition(locationX, locationY);
+					container.moveObject(nextPos.x, nextPos.y);	
+					try {
+						Thread.sleep(10);
+					} catch (InterruptedException e1) {
+						e1.printStackTrace();
+				//	}
+				}
+			}
+		};
+		
+		this.timer = new Timer(Settings.TIMER_DELAY, moveAction);
+		this.timer.start();
+	}
+	
+	public static void main(String[] args) {
+
+		new MainFrame();
+		
+	}
+	
+}

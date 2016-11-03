@@ -104,6 +104,7 @@ public class MotionWindow {
 		
 	}
 
+	@SuppressWarnings("unused")
 	private void randomPositionAlgorithm(int pos_x, int pos_y, Color color, int greenNum, int redNum) {
 		if (pos_x < RANDOM_NUMBER_RANGE / 2) {
 			color = Color.green;
@@ -117,6 +118,7 @@ public class MotionWindow {
 		pos_y = r.nextInt(RANDOM_NUMBER_RANGE);	
 	}
 	
+	@SuppressWarnings("unused")
 	private void smoothMovingAlgorithm(int pos_x, int pos_y, Color color) {
 		
 		int step = r.nextInt(4);

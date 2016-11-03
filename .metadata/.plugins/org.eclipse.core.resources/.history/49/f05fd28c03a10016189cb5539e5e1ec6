@@ -1,0 +1,31 @@
+import java.awt.Point;
+import java.util.Random;
+
+
+public class AlgorithmContainer {
+
+	private Random r = new Random();
+	
+	private int posX = Settings.PANEL_WIDTH / 2;
+	private int posY = Settings.PANEL_HEIGHT / 2;
+	
+	/* Random generated location */
+	public Point getNextPositionRandom() {	
+		int x = r.nextInt(Settings.RANDOM_NUM_RANGE_X);
+		int y = r.nextInt(Settings.RANDOM_NUM_RANGE_Y);
+		
+		return new Point(x, y);
+	}
+	
+	/* Fluent movement of object */
+	public Point getNextPositionFluent() {
+		this.posY += Settings.FLUENT_NUM_STEP;
+		
+		if (this.posY <= 0 || this.posY > Settings.PANEL_HEIGHT - Settings.OBJECT_HEIGHT) {
+			Settings.FLUENT_NUM_STEP = -Settings.FLUENT_NUM_STEP;
+			this.posY += Settings.FLUENT_NUM_STEP;
+		}
+		return new Point(this.posX, this.posY);
+	}
+	
+}

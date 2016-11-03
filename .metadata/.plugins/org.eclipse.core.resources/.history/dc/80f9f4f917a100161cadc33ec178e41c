@@ -1,0 +1,76 @@
+import java.awt.Color;
+import java.awt.Graphics;
+
+import javax.swing.JPanel;
+import javax.swing.SwingUtilities;
+
+public class AnimationContainer extends JPanel {
+
+	private static final long serialVersionUID = 1L;
+	
+	private AnimationObject object = new AnimationObject(Settings.PANEL_WIDTH / 2, Settings.PANEL_HEIGHT / 2, Color.GREEN);
+	
+	public AnimationContainer() {
+		this.setSize(Settings.PANEL_WIDTH, Settings.PANEL_HEIGHT);
+		this.setVisible(true);
+	}
+	
+	public void moveObject(Integer x, Integer y) {
+		System.out.printf("Object append move from (%d,%d) to (%d,%d) \n", object.getX(), object.getY(), x, y);
+		
+		moveObjectFluently(x, y);
+		
+		System.out.printf("Object moved to (%d,%d), appended to (%d,%d). \n", object.getX(), object.getY(), x, y);
+	}
+	
+	@SuppressWarnings("unused")
+	private void moveObjectRegular(Integer x, Integer y) {
+		object.move(x, y);
+		repaint();	
+	}
+	
+	private void moveObjectFluently(Integer locationX, Integer locationY) {
+		int i = 0;
+		int x = object.getX();
+		int y = object.getY();
+		
+		while (i < Settings.MOVEMENT_LENGTH) {
+			if (y != locationY) {
+				if (y < locationY)    		
+					y += 1;  // Up
+				else 
+					y -= 1;  // Down
+			} else if (x != locationX) {
+				if (x < locationX)    		
+					x += 1;  // Right
+				else 
+					x -= 1;  // Left
+			} else {
+				i = Settings.MOVEMENT_LENGTH;// Destination reached, no need to move
+			}
+			object.move(x,y);
+			i++;
+			try {
+				Thread.sleep(10);
+			} catch (Exception e) {
+				e.printStackTrace();
+			}
+
+		}
+	}
+	
+	
+	@Override
+	public void paintComponent(Graphics g) {
+		super.paintComponent(g);
+		object.draw(g);
+		
+		System.out.println("painted: " + object.getX() + " , " + object.getY());
+	}
+	
+	public void setObjectColor(Color c) {
+		object.setColor(c);
+	}
+
+ 
+}

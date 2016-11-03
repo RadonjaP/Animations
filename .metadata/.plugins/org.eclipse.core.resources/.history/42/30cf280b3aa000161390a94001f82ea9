@@ -1,0 +1,21 @@
+import java.awt.Color;
+import java.awt.Graphics;
+
+import javax.swing.JPanel;
+
+
+public class Drawboard extends JPanel {
+
+	private ColoredRectangle rectangle = new ColoredRectangle(0, 0, Color.green);
+	
+	public void drawRectangle(int x, int y) {
+		
+	}
+	
+	@Override
+	protected void paintComponent(Graphics g) {
+		super.paintComponent(g);
+		
+	}
+	
+}

@@ -1,0 +1,70 @@
+import java.awt.Point;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
+import java.util.Random;
+
+import javax.swing.JFrame;
+import javax.swing.Timer;
+
+
+public class MainFrame extends JFrame {
+
+	private static final long serialVersionUID = 1L;
+	
+	private Timer timer;
+	private ActionListener moveAction;
+	private AnimationContainer container;
+	private Random r;
+	
+	private int posX = Settings.PANEL_WIDTH / 2;
+	private int posY = Settings.PANEL_HEIGHT / 2;
+	
+	public MainFrame() {
+		r = new Random();
+		container = new AnimationContainer();
+		
+		this.setSize(Settings.FRAME_WIDTH, Settings.FRAME_HEIGHT);
+		this.setTitle("Animation");
+		this.setDefaultCloseOperation(EXIT_ON_CLOSE);
+		this.setVisible(true);
+		this.getContentPane().add(container);
+
+		this.moveAction = new ActionListener() {
+			@Override
+			public void actionPerformed(ActionEvent e) {
+				Point nextPos = getNextPositionFluent();
+				container.moveObject(nextPos.x, nextPos.y);
+				repaint();
+			}
+		};
+		
+		this.timer = new Timer(Settings.TIMER_DELAY, moveAction);
+		this.timer.start();
+	}
+	
+	/* Random generated location */
+	public Point getNextPositionRandom() {	
+		int x = r.nextInt(Settings.RANDOM_NUM_RANGE_X);
+		int y = r.nextInt(Settings.RANDOM_NUM_RANGE_Y);
+		
+		return new Point(x, y);
+	}
+	
+	/* Fluent movement of object */
+	public Point getNextPositionFluent() {
+		if (this.posY < Settings.PANEL_HEIGHT && this.posY > 0) {
+			this.posY -= Settings.FLUENT_NUM_STEP_Y;
+		} else if (this.posY > ){
+			this.posY += Settings.FLUENT_NUM_STEP_Y;
+		}
+		
+		return new Point(this.posX, this.posY);
+	}
+	
+	public static void main(String[] args) {
+
+		new MainFrame();
+		
+	}
+	
+}

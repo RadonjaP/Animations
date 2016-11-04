@@ -1,9 +1,0 @@
-package animation.main;
-
-import javax.swing.JPanel;
-
-public class AnimationPanel extends JPanel {
-
-	
-	
-}

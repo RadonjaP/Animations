@@ -7,15 +7,19 @@ public abstract class AbstractAnimationObject {
 
 	protected Integer x;
 	protected Integer y;
+	protected Integer speedX;
+	protected Integer speedY;
 	
 	protected Color color;
 	
-	public AbstractAnimationObject(Integer x, Integer y) {
+	public AbstractAnimationObject(Integer x, Integer y, Integer speedX, Integer speedY) {
 		this.x = x;
 		this.y = y;
-		this.color = Color.black;
+		this.speedX = speedX;
+		this.speedY = speedY;
+		this.color = Color.red;
 	}
-	
+
 	// Method for moving object coordinates
 	public abstract void move(Integer x, Integer y);
 	
@@ -28,6 +32,14 @@ public abstract class AbstractAnimationObject {
 	
 	public void setColor(Color color) {
 		this.color = color;
+	}
+	
+	public void setSpeedX(Integer speedX) {
+		this.speedX = speedX;
+	}
+	
+	public void speedY(Integer speedY) {
+		this.speedY = speedY;
 	}
 
 	

@@ -1,0 +1,22 @@
+package animation.physicengine;
+
+import java.awt.Point;
+
+public class PhysicsEngine {
+
+	
+	
+	public Point callAlgorithm(int direction) {
+		return getNextPoint(direction);
+	}
+	
+	private Point getNextPoint(Integer direction) {
+		
+		
+		
+		return null;
+		
+	}
+		
+	
+}

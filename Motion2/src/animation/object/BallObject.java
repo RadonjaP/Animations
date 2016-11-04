@@ -2,6 +2,9 @@ package animation.object;
 
 import java.awt.Color;
 import java.awt.Graphics2D;
+import java.awt.Point;
+
+import javax.swing.text.html.HTMLDocument.HTMLReader.SpecialAction;
 
 import animation.main.Constants;
 
@@ -9,8 +12,8 @@ public class BallObject extends AbstractAnimationObject {
 
 	private Integer radius;
 	
-	public BallObject(Integer x, Integer y) {
-		super(x, y);
+	public BallObject(Integer x, Integer y, Integer speedX, Integer speedY) {
+		super(x, y, speedX, speedY);
 		this.radius = Constants.OBJECT_BALL_RADIUS;
 	}
 
@@ -28,6 +31,11 @@ public class BallObject extends AbstractAnimationObject {
 		g.fillOval(x + 5, y + 3,
 				(int)Math.round(radius - (radius * 0.75)), 
 				(int)Math.round(radius - (radius * 0.35)));
+	}
+	
+	public Point getCoordinates() {
+		Point p = new Point(this.x, this.y);
+		return p;
 	}
 
 }

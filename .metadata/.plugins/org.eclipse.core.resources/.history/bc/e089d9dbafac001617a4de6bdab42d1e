@@ -1,0 +1,20 @@
+
+public class TestNormalizationEngine {
+
+	public static void main(String[] args) {
+		
+		Double x;
+		Double y;
+		
+		Double normalizedX;
+		Double normalizedY;
+		
+		Double magnitude;
+		
+		Double goalX;
+		Double golaY;
+		
+
+	}
+
+}

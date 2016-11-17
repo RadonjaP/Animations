@@ -1,0 +1,22 @@
+
+public class TestNormalizationEngine {
+
+	public static void main(String[] args) {
+		
+		Double x = 2.0;
+		Double y = 1.0;
+		
+		Double normalizedX;
+		Double normalizedY;
+		
+		Double magnitude;
+		
+		Double goalX;
+		Double goalY;
+		
+		
+		
+		
+	}
+
+}

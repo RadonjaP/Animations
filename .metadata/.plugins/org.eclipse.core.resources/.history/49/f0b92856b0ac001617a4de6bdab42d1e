@@ -1,0 +1,26 @@
+
+public class TestNormalizationEngine {
+
+	public static void main(String[] args) {
+		
+		Double posX = 2.0;
+		Double posY = 1.0;
+		
+		Double goalX = 4.0;
+		Double goalY = 5.0;
+		
+		Double x = goalX - posX;
+		Double y = goalY - posY;
+		
+		Double normalizedX;
+		Double normalizedY;
+		
+		Double magnitude;
+		
+		// Count magnitude
+		magnitude = Math.sqrt(a)
+		
+		
+	}
+
+}

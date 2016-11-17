@@ -1,9 +1,0 @@
-package objects;
-
-import animationcore.objects.AbstractMovingObject;
-
-public class BallObject extends AbstractMovingObject {
-
-	
-	
-}

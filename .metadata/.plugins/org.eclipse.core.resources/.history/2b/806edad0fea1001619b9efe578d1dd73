@@ -1,5 +1,0 @@
-package animation.object;
-
-public class BallObject extends AbstractAnimationObject {
-
-}

@@ -1,7 +1,0 @@
-
-public class Constants {
-
-	public static final int PANEL_WIDTH = 400;
-	public static final int PANEL_HEIGHT = 300;
-	
-}

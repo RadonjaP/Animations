@@ -1,0 +1,36 @@
+package objects;
+
+import java.awt.Graphics2D;
+
+import animationcore.objects.AbstractMovingObject;
+
+public class ObjectWithGoal extends AbstractMovingObject {
+
+	private Double posX = 2.0;
+	private posY = 1.0;
+	
+	Double goalX = 4.0;
+	Double goalY = 5.0;
+	
+	Double x = goalX - posX;
+	Double y = goalY - posY;
+	
+	Double normalizedX;
+	Double normalizedY;
+	
+	Double magnitude; 
+	
+	
+	@Override
+	public void move() {
+		// TODO Auto-generated method stub
+		
+	}
+
+	@Override
+	public void draw(Graphics2D g) {
+		// TODO Auto-generated method stub
+		
+	}
+
+}

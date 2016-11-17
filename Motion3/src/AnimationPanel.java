@@ -1,6 +1,7 @@
 import java.awt.Color;
 import java.awt.Graphics;
 import java.awt.Graphics2D;
+import java.util.Timer;
 
 import javax.swing.BorderFactory;
 import javax.swing.JPanel;
@@ -8,11 +9,12 @@ import javax.swing.JPanel;
 import animationcore.physics.CVector;
 import helpers.Constants;
 import objects.BallObject;
+import objects.ObjectWithGoal;
 
 public class AnimationPanel extends JPanel {
 
 	private static final long serialVersionUID = 1L;
-	private BallObject object = new BallObject(new CVector(Constants.BALL_VELOCITY
+	private ObjectWithGoal object = new ObjectWithGoal(new CVector(Constants.BALL_VELOCITY
 			, Constants.BALL_VELOCITY),
 			new CVector(Constants.BALL_ACCELLERATION,
 					Constants.BALL_ACCELLERATION));
@@ -27,10 +29,11 @@ public class AnimationPanel extends JPanel {
 			
 			@Override
 			public void run() {
+				boolean loop = true;
 				
-				while (true) {
+				while (loop) {
 					
-					moveObject();
+					loop = moveObject();
 					
 					try {
 						Thread.sleep(Constants.SLEEP_TIME);
@@ -50,9 +53,15 @@ public class AnimationPanel extends JPanel {
 		object.draw(g2D);
 	}
 	
-	public void moveObject() {
-		object.move();
-		repaint();
+	public boolean moveObject() {
+		try {
+			object.move();
+			repaint();
+		} catch (Exception e) {
+			System.out.println("GOAL REACHED");
+			return false;
+		}
+		return true;
 	}
 
 }

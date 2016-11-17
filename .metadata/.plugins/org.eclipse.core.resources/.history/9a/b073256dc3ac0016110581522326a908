@@ -1,0 +1,45 @@
+package objects;
+
+import java.awt.Graphics2D;
+import java.util.Random;
+
+import animationcore.objects.AbstractMovingObject;
+
+public class ObjectWithGoal extends AbstractMovingObject {
+
+	private Random r = new Random(100);
+	
+	private Double posX = 2.0;
+	private Double posY = 1.0;
+	
+	private Double goalX = r.nextDouble();
+	private Double goalY = r.nextDouble();
+	
+	private Double x = goalX - posX;
+	private Double y = goalY - posY;
+	
+	private Double normalizedX;
+	private Double normalizedY;
+	
+	private Double magnitude;
+	
+	public ObjectWithGoal() {
+		x = goalX - posX;
+		y = goalY - posY;
+		magnitude = Math.sqrt(a)
+	}
+	
+	
+	@Override
+	public void move() {
+		// TODO Auto-generated method stub
+		
+	}
+
+	@Override
+	public void draw(Graphics2D g) {
+		// TODO Auto-generated method stub
+		
+	}
+
+}

@@ -9,6 +9,7 @@ public class CVector {
 		this.setY(y);
 	}
 	
+	//TODO this is not magnitude, x and y should be longitude not coordinates
 	public Float getMagnitude() {
 		return (float) Math.sqrt(x*x + y*y);
 	}

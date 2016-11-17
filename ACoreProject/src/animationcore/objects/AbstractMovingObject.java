@@ -15,7 +15,7 @@ public abstract class AbstractMovingObject {
 	}
 
 	// Move object and set parameters
-	public abstract void move();
+	public abstract void move() throws Exception;
 
 	// Draw object on canvas
 	public abstract void draw(Graphics2D g);

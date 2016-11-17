@@ -24,11 +24,8 @@ public class TestNormalizationEngine {
 		
 		while (posX <= goalX && posY <= goalY) {
 			
-			normalizedX = x / magnitude / 10;
-			
-		//	System.out.println("NORMALIZED X: " + normalizedX +" x =  "+ x + " magnitude "+ magnitude);
-			
-			normalizedY = y / magnitude / 10;
+			normalizedX = x / magnitude / 5;
+			normalizedY = y / magnitude / 5;
 			
 			posX += normalizedX;
 			posY += normalizedY;

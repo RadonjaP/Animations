@@ -1,0 +1,16 @@
+import javax.swing.JPanel;
+
+import animationcore.physics.CVector;
+import objects.BallObject;
+
+public class AnimationPanel extends JPanel {
+
+	private static final long serialVersionUID = 1L;
+	
+	private BallObject object = new BallObject(new CVector(0.0f, 0.0f), new CVector(1.0f, 1.0f));
+
+	public AnimationPanel() {
+		
+	}
+
+}

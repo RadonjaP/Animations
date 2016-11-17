@@ -1,0 +1,35 @@
+package animationcore.physics;
+
+public class CVector {
+
+	private Float x , y;
+	
+	public CVector(Float x, Float y) {
+		this.setX(x);
+		this.setY(y);
+	}
+	
+	public void add(CVector addition) {
+		this.x += addition.getX();
+		this.y += addition.getY();
+	}
+
+	public Float getX() {
+		return x;
+	}
+
+	public void setX(Float x) {
+		this.x = x;
+	}
+
+	public Float getY() {
+		return y;
+	}
+
+	public void setY(Float y) {
+		this.y = y;
+	}
+	
+	
+	
+}

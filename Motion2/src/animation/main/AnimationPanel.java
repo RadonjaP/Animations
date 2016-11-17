@@ -28,18 +28,14 @@ public class AnimationPanel extends JPanel {
 				
 				while (true)  {
 					
-					int speedX = r.nextInt(10);
-					int speedY = r.nextInt(10);
+					Integer speedX = (r.nextInt(20) - 10);
+					Integer speedY = speedX;
+
 					
-					if (speedX == 0)
-						speedX++;
-					if (speedY == 0) 
-						speedY++;
-					
-					while (1 >= 0) {
+					while (speedX != 0 && speedY != 0) {
 						
 						Point objectCoordinates = object.getCoordinates();
-						Point nextPoint = engine.callAlgorithm(1, objectCoordinates.x, objectCoordinates.y, 1);
+						Point nextPoint = engine.callAlgorithm(1, objectCoordinates.x, objectCoordinates.y, speedX, speedY);
 						
 						if (nextPoint.x >= Constants.PANEL_WIDTH - Constants.OBJECT_BALL_RADIUS * 2 || nextPoint.x < 0) {
 							System.out.println("Invalid location. Axis x out of bounds");
@@ -52,14 +48,12 @@ public class AnimationPanel extends JPanel {
 						
 						moveObject(nextPoint.x, nextPoint.y, 1);
 						
-						
 						try {
 							Thread.sleep(Constants.ANIMATION_SPEED);
 						} catch (InterruptedException e) {
 							e.printStackTrace();
 						}
-						
-						//1--;
+
 					}
 				}
 			}

@@ -1,0 +1,11 @@
+import java.awt.Point;
+
+public class PhysicsEngine {
+
+	
+	
+	public Point callAlgorithm(Integer direction, Integer x, Integer y, Integer speedX, Integer speedY) {
+		return getNextPointVector(x, y, speedX, speedY);
+	}
+	
+}

@@ -14,7 +14,7 @@ public class Constants {
 	public static final int OBJECT_WIDTH = 40;
 	
 	// Animation constants
-	public static final int ANIMATION_SPEED = 100;
+	public static final int ANIMATION_SPEED = 20;
 	
 	
 }

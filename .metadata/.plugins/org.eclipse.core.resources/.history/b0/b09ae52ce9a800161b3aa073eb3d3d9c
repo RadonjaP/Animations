@@ -1,0 +1,18 @@
+package animationcore.objects;
+
+import animationcore.physics.CVector;
+
+public abstract class AbstractMovingObject {
+
+	private CVector position;
+	private CVector velocity;
+	private CVector acceleration;
+	
+	
+	// Move object and set parameters
+	public abstract void move();
+	
+	// Draw object on canvas
+	public abstract void draw();
+	
+}

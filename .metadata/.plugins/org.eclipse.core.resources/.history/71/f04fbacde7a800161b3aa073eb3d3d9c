@@ -1,0 +1,11 @@
+package animationcore.objects;
+
+import animationcore.physics.CVector;
+
+public abstract class AbstractMovingObject {
+
+	private CVector position;
+	private CVector velocity;
+	private CVector acceleration;
+	
+}

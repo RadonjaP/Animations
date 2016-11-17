@@ -1,0 +1,26 @@
+package animationcore.objects;
+
+import java.awt.Graphics;
+
+import animationcore.physics.CVector;
+
+public abstract class AbstractMovingObject {
+
+	private CVector position;
+	private CVector velocity;
+	private CVector acceleration;
+	
+	public AbstractMovingObject(CVector position, CVector velocity, CVector acceleration) {
+		super();
+		this.position = position;
+		this.velocity = velocity;
+		this.acceleration = acceleration;
+	}
+
+	// Move object and set parameters
+	public abstract void move();
+
+	// Draw object on canvas
+	public abstract void draw(Graphics g);
+	
+}

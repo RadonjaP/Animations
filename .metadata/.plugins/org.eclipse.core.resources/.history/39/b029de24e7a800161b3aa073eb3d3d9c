@@ -1,0 +1,5 @@
+package animationcore.objects;
+
+public class AbstractObject {
+
+}

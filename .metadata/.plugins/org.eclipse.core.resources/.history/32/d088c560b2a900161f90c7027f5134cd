@@ -1,0 +1,29 @@
+import java.awt.BorderLayout;
+
+import javax.swing.JFrame;
+import helpers.Constants;
+
+public class MainFrameNew extends JFrame {
+
+	private static final long serialVersionUID = 1L;
+	
+	public MainFrameNew() {
+		this.setSize(Constants.FRAME_WIDTH, Constants.FRAME_HEIGHT);
+		this.setTitle("Animation panel");
+		this.setDefaultCloseOperation(EXIT_ON_CLOSE);
+		this.setVisible(true);
+		this.getContentPane().add(new AnimationPanel(), BorderLayout.CENTER);
+
+		Constants.statusLabel.setSize(Constants.LABEL_HEIGHT, Constants.LABEL_WIDTH);
+		this.getContentPane().add(Constants.statusLabel, BorderLayout.NORTH);
+		
+		
+	}
+
+	public static void main(String[] args) {
+
+		new MainFrameNew();
+		
+	}
+
+}

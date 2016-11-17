@@ -1,0 +1,7 @@
+package animationcore.objects;
+
+public class AbstractMovingObject {
+
+	
+	
+}

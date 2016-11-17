@@ -6,10 +6,11 @@ public class PhysicsEngine {
 
 	
 	
-	public Point callAlgorithm(Integer direction, Integer x, Integer y, Integer speed) {
-		return getNextPoint(direction, x, y, speed);
+	public Point callAlgorithm(Integer direction, Integer x, Integer y, Integer speedX, Integer speedY) {
+		return getNextPointVector(x, y, speedX, speedY);
 	}
 	
+	@SuppressWarnings("unused")
 	private Point getNextPoint(Integer direction, Integer x, Integer y, Integer speed) {
 		
 		switch(direction) {
@@ -27,6 +28,27 @@ public class PhysicsEngine {
 		return new Point(x,y);
 		
 	}
+	
+	private Point getNextPointVector(Integer x, Integer y, Integer speedX, Integer speedY) {
 		
+		if (speedX != 0 && speedX < 0) {
+			x--;
+			speedX--;
+		} else {
+			x++;
+			speedX--;
+		}
+		
+		if (speedY != 0 && speedY < 0) {
+			y--;
+			speedY--;
+		} else {
+			y++;
+			speedY--;
+		}
+		return new Point(x,y);
+	}
+		
+	
 	
 }

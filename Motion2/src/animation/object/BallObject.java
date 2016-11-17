@@ -4,8 +4,6 @@ import java.awt.Color;
 import java.awt.Graphics2D;
 import java.awt.Point;
 
-import javax.swing.text.html.HTMLDocument.HTMLReader.SpecialAction;
-
 import animation.main.Constants;
 
 public class BallObject extends AbstractAnimationObject {

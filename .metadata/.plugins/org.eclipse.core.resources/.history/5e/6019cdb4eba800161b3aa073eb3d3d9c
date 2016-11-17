@@ -1,0 +1,39 @@
+package objects;
+
+import java.awt.Color;
+import java.awt.Graphics;
+
+import animationcore.objects.AbstractMovingObject;
+import animationcore.physics.CVector;
+
+public class BallObject extends AbstractMovingObject {
+
+	private Float ballRadius;
+	private Color color;
+	
+	public BallObject(CVector position, CVector velocity, CVector acceleration, Float ballRadius) {
+		super(position, velocity, acceleration);
+		this.ballRadius = ballRadius; 
+	}
+
+	@Override
+	public void move() {
+		velocity.add(acceleration);
+		position.add(velocity);
+	}
+
+	@Override
+	public void draw(Graphics g) {
+		g.setPaint(color);
+		g.fillOval(position.getX(), position.getY(), ballRadius, ballRadius);
+		g.setColor(Color.WHITE);
+		g.fillOval(x + 5, y + 3,
+				(int)Math.round(radius - (radius * 0.75)), 
+				(int)Math.round(radius - (radius * 0.35)));
+		
+		
+	}
+
+	
+	
+}

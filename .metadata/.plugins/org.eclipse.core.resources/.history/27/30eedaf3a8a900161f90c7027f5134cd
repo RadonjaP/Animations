@@ -1,0 +1,16 @@
+package helpers;
+
+public class Constants {
+
+	public static final int PANEL_WIDTH = 400;
+	public static final int PANEL_HEIGHT = 350;
+	public static final int FRAME_WIDTH = PANEL_WIDTH;
+	public static final int FRAME_HEIGHT = PANEL_HEIGHT;
+
+	public static final int BALL_RADIUS = 50;
+	
+	public static final int SLEEP_TIME = 1200;
+	public static final Float BALL_ACCELLERATION = 0.0f;
+	public static final Float BALL_VELOCITY = 1.0f;
+	
+}

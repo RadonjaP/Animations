@@ -1,0 +1,49 @@
+import java.awt.Graphics;
+
+import javax.swing.JPanel;
+
+import animationcore.physics.CVector;
+import helpers.Constants;
+import objects.BallObject;
+
+public class AnimationPanel extends JPanel {
+
+	private static final long serialVersionUID = 1L;
+	
+	private BallObject object = new BallObject(new CVector(0.0f, 0.0f), new CVector(1.0f, 1.0f));
+
+	public AnimationPanel() {
+		
+		this.setSize(Constants.PANEL_WIDTH, Constants.PANEL_HEIGHT);
+		this.setVisible(true);
+		
+		while (true) {
+			
+			
+			moveObject();
+			
+			Thread t = new Thread(new Runnable() {
+				
+				@Override
+				public void run() {
+					// TODO Auto-generated method stub
+					
+				}
+			}).start();
+			
+		}
+		
+	}
+	
+	@Override
+	protected void paintComponent(Graphics g) {
+		super.paintComponent(g);
+		object.draw(g);
+	}
+	
+	private void moveObject() {
+		object.move();
+		repaint();
+	}
+
+}

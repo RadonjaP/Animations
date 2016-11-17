@@ -1,0 +1,7 @@
+package animationcore.physics;
+
+public interface PhysicsEngine {
+
+	
+	
+}

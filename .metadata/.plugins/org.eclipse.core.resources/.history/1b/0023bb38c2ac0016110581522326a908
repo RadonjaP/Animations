@@ -1,7 +1,0 @@
-package objects;
-
-import animationcore.objects.AbstractMovingObject;
-
-public class ObjectWithGoal extends AbstractMovingObject {
-
-}

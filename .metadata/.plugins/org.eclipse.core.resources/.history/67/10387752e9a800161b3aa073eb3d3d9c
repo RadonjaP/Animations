@@ -1,5 +1,0 @@
-package animationcore.physics;
-
-public interface PhysicEngine {
-
-}

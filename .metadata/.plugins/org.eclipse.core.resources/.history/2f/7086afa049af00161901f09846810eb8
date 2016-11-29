@@ -1,0 +1,34 @@
+package helpers;
+
+import javax.swing.JLabel;
+
+public class Constants {
+
+	public static final int PANEL_WIDTH = 400;
+	public static final int PANEL_HEIGHT = 350;
+	public static final int LABEL_HEIGHT = 100;
+	public static final int LABEL_WIDTH = 260;
+	public static final int FRAME_WIDTH = PANEL_WIDTH + LABEL_WIDTH;
+	public static final int FRAME_HEIGHT = PANEL_HEIGHT + LABEL_HEIGHT;
+
+	public static final int BALL_RADIUS = 75;
+	
+	public static final int SLEEP_TIME = 1;
+	public static Float BALL_ACCELLERATION = 0.00f;
+	public static Float BALL_VELOCITY = 1.00f;
+	
+	// Statistic
+	public static Float START_TIME = 0.0f;
+	public static Float END_TIME = 0.0f;
+	public static Float LONG_X = 0.0f;
+	public static Float LONG_Y = 0.0f;
+	public static Float NANO_TIME_SETUP = 0.1f;
+	public static Float SPEED_MAX = 0.0f;
+	public static Float SPEED_MIN = Float.MAX_VALUE;
+	public static Integer DEVIATION_NO_MAX = -1;
+	public static Integer DEVIATION_NO_MIN = -1;
+	
+	
+	public static JLabel statusLabel = new JLabel();
+	
+}

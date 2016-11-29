@@ -1,0 +1,52 @@
+package objects;
+
+import java.awt.Color;
+import java.awt.Graphics2D;
+import java.awt.MouseInfo;
+import java.awt.Point;
+
+import animationcore.objects.AbstractMovingObject;
+import animationcore.physics.CVector;
+import helpers.Constants;
+
+public class ObjectToMouse extends AbstractMovingObject {
+
+	private Integer ballRadius;
+	private Color color;
+	
+	private Double goalX;
+	private Double goalY;
+	
+	public ObjectToMouse(CVector acceleration, CVector velocity) {
+		color = Color.RED;
+		ballRadius = Constants.BALL_RADIUS;
+	}
+	
+	@Override
+	public void move() throws Exception {
+		Point mouseLocation = MouseInfo.getPointerInfo().getLocation();
+		
+		CVector mousePosition = new CVector((float)mouseLocation.getX(),(float)mouseLocation.getY());
+		
+		CVector dir = CVector.subtract(mousePosition, position);
+		
+		dir.multiply((float)Constants.BALL_VELOCITY);
+		
+	}
+
+	@Override
+	public void draw(Graphics2D g) {
+		g.setPaint(color);
+		g.fillOval(Math.round(position.getX()), Math.round(position.getY()), ballRadius, ballRadius);
+		g.setColor(Color.WHITE);
+		g.fillOval(Math.round(position.getX()) + 7, Math.round(position.getY()) + 5,
+				(int)Math.round(ballRadius - (ballRadius * 0.75)), 
+				(int)Math.round(ballRadius - (ballRadius * 0.35)));
+		
+	}
+	
+	private void normalize() {
+		
+	}
+
+}

@@ -1,0 +1,21 @@
+package objects;
+
+import java.awt.Graphics2D;
+
+import animationcore.objects.AbstractMovingObject;
+
+public class ObjectToMouse extends AbstractMovingObject {
+
+	@Override
+	public void move() throws Exception {
+		
+		
+	}
+
+	@Override
+	public void draw(Graphics2D g) {
+		
+		
+	}
+
+}

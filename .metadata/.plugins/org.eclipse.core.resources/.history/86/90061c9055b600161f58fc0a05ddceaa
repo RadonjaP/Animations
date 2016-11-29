@@ -1,0 +1,40 @@
+package object;
+
+import java.awt.Graphics;
+
+import helpers.MVector;
+
+abstract class MovingObject {
+
+	protected MVector position;
+	protected MVector velocity;
+	protected MVector acceleration;
+	
+	public MovingObject() {}
+	
+	public MovingObject(MVector pos, MVector vel, MVector acc) {
+		this.position = pos;
+		this.velocity = vel;
+		this.acceleration = acc;
+	}
+	
+	abstract void moveObject();
+	
+	abstract void drawObject(Graphics g);
+	
+	abstract void checkEdge();
+	
+	public void setPosition(MVector pos) {
+		this.position = pos;
+	}
+	
+	public void setAcceleration(MVector acc) {
+		this.acceleration = acc;
+	}
+	
+	public void setVelocity(MVector vel) {
+		this.velocity = pos;
+	}
+	
+	
+}

@@ -1,0 +1,94 @@
+package helpers;
+
+public class MVector {
+
+	private Double x;
+	private Double y;
+	
+	private Double dx = 0.0;
+	private Double dy = 0.0;
+	
+	public MVector() {
+		this.x = 0.0;
+		this.y = 0.0;
+		
+	}
+	
+	public MVector(Double x, Double y) {
+		this.x = x;
+		this.y = y;
+	}
+	
+	public void add(MVector addition) {
+		this.x += addition.getX();
+		this.y += addition.getY();
+	}
+	
+	public void subtract(MVector subtraction) {
+		this.x -= subtraction.getX();
+		this.y -= subtraction.getY();
+	}
+	
+	public void divide(MVector div) {
+		this.x /= div.getX();
+		this.y /= div.getY();
+	}
+	
+	public void divide(Double div) {
+		this.x /= div;
+		this.y /= div;
+	}
+	
+	public void multiply(Double n) {
+		this.x *= n;
+		this.y *= n;
+	}
+	
+	public void multiply(MVector mult) {
+		this.x *= mult.getX();
+		this.y *= mult.getY();
+	}
+	
+	public void setDistance(MVector goalPoint) {
+		this.dx = this.x - goalPoint.getX();
+		this.dy = this.y - goalPoint.getY();
+	}
+	
+	public Double getMagnitude() {
+		return Math.sqrt(dx * dx + dy * dy);
+	}
+	
+	public void getNormalized() {
+		Double mag = getMagnitude();
+		MVector normalizedVector = (MVector) this.clone();
+		
+
+	}
+	
+	public void normalize() {
+		Double mag = getMagnitude();
+		if (mag != 0.0)
+			divide(mag);
+	}
+
+	public Double getX() {
+		return x;
+	}
+
+	public void setX(Double x) {
+		this.x = x;
+	}
+
+	public Double getY() {
+		return y;
+	}
+
+	public void setY(Double y) {
+		this.y = y;
+	}
+	
+	
+	
+	
+	
+}

@@ -1,0 +1,10 @@
+package helpers;
+
+public class Constants {
+
+	// Panel properties
+	public static Integer PANEL_ANIMATION_WIDTH = 500;
+	public static Integer PANEL_ANIMATION_HEIGHT = 350;
+	
+	
+}

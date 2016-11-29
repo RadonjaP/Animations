@@ -1,0 +1,11 @@
+package object;
+
+import helpers.MVector;
+
+abstract class MovingObject {
+
+	protected MVector position;
+	protected MVector velocity;
+	protected MVector acceleration;
+	
+}

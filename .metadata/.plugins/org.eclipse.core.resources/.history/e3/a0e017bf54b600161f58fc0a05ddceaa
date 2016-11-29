@@ -1,0 +1,9 @@
+package object;
+
+import helpers.MVector;
+
+abstract class MovingObject {
+
+	protected MVector position;
+	
+}

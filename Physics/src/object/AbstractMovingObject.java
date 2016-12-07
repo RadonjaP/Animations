@@ -18,6 +18,8 @@ abstract class AbstractMovingObject {
 	protected MVector velocity;
 	protected MVector acceleration;
 	
+	protected Double angle;
+	
 	public AbstractMovingObject() {}
 	
 	public AbstractMovingObject(MVector pos, MVector vel, MVector acc) {
@@ -56,6 +58,10 @@ abstract class AbstractMovingObject {
 	
 	public void setAcceleration(MVector acc) {
 		this.acceleration = acc;
+	}
+	
+	public void setAngle(Double angle) {
+		this.angle = angle;
 	}
 	
 }

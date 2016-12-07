@@ -7,14 +7,17 @@ public class Constants {
 	public static Integer PANEL_ANIMATION_HEIGHT = 500;
 	
 	//Frame properties
-	public static Integer FRAME_WIDTH = PANEL_ANIMATION_WIDTH + 100;
-	public static Integer FRAME_HEIGHT = PANEL_ANIMATION_HEIGHT + 100;
+	public static Integer FRAME_WIDTH = PANEL_ANIMATION_WIDTH + 200;
+	public static Integer FRAME_HEIGHT = PANEL_ANIMATION_HEIGHT + 40;
 	
 	// Animation properties
-	public static Integer SIMULATION_SLEEP_TIME = 10;
-	public static Double OBJECT_ACCELERATION = 0.01;
-	public static Double OBJECT_VELOCITY = 1.0;
-	public static Double VELOCITY_LIMITATION = 4.5;
+	public static Integer SIMULATION_SLEEP_TIME = 20;
+	public static Double OBJECT_ACCELERATION = 0.05;
+	public static Double OBJECT_VELOCITY = 0.1;
+	public static Double VELOCITY_LIMITATION = 7.0;
+	public static Double ANGLE = 76.0;
+	
+	public static Integer BALLS_NUMBER = 10000;
 	
 	
 }

@@ -1,7 +1,0 @@
-package object;
-
-abstract class MovingObject {
-
-	
-	
-}

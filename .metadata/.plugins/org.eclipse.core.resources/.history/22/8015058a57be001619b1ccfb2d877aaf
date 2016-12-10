@@ -1,0 +1,74 @@
+package object;
+
+import java.awt.Color;
+import java.awt.Font;
+import java.awt.Graphics;
+import java.util.Random;
+
+import helpers.Constants;
+
+public class BallObject extends AbstractMovingObject {
+
+	public static final Integer BALL_WIDTH = 70;
+	public static final Integer BALL_HEIGHT = 70;
+	private Color color;
+
+	public BallObject(Color color) {
+		this.color = color;
+	}
+
+	@Override
+	public void moveObject() {
+		moveObjectWithAccOnly();
+		checkCollision();
+	}
+
+	@Override
+	public void drawObject(Graphics g) {
+		g.setColor(color);
+		g.fillOval(this.position.getX().intValue(), this.position.getY().intValue(), BALL_WIDTH, BALL_HEIGHT);
+		g.setColor(Color.BLUE);
+		g.setFont(new Font("TimesRoman", Font.PLAIN, 12));
+		String textInfoTop = String.format("(%.0f,%.0f)", 
+				position.getX(), position.getY());
+		g.drawString(textInfoTop, position.getX().intValue(), position.getY().intValue() - 4);
+		String textInfoBottom = String.format("s:%.2f a:%.0f", 
+				velocity.getX(), Math.toDegrees(angle));
+		g.drawString(textInfoBottom, position.getX().intValue(), position.getY().intValue() + BALL_HEIGHT + 10);
+	}
+
+	@Override
+	public boolean checkCollision() {		
+		if (this.position.getX() < 0 || this.position.getX() + BALL_WIDTH > Constants.PANEL_ANIMATION_WIDTH) {
+			acceleration.setX(-acceleration.getX());
+			velocity.setX(-velocity.getX());
+			Double posX = this.position.getX() < 0 ? 0 : Constants.PANEL_ANIMATION_WIDTH.doubleValue() - BALL_WIDTH;
+			position.setX(posX);
+			if (Math.abs(velocity.getX()) >= Constants.VELOCITY_LIMITATION) {
+				acceleration.setX(-acceleration.getX());
+			}    
+			return false;
+		}
+		if (this.position.getY() < 0 || this.position.getY() + BALL_HEIGHT > Constants.PANEL_ANIMATION_HEIGHT) {
+			acceleration.setY(-acceleration.getY());
+			Double posY = this.position.getY() < 0 ? 0 : Constants.PANEL_ANIMATION_HEIGHT.doubleValue() - BALL_HEIGHT;
+			velocity.setY(-velocity.getY());
+			position.setY(posY);
+			if (Math.abs(velocity.getY()) >= Constants.VELOCITY_LIMITATION) {
+				acceleration.setY(-acceleration.getY()); 
+			}
+			return false;
+		}
+		return true;
+	}
+
+	private void moveObjectWithAccOnly() {
+		velocity.add(acceleration);
+		position.add(velocity);
+	}
+
+	public Color getColor() {
+		return this.color;
+	}
+
+}

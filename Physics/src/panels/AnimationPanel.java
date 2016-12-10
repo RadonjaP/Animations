@@ -13,11 +13,12 @@ import javax.swing.JPanel;
 import helpers.Constants;
 import helpers.MVector;
 import object.BallObject;
+import object.PointyObject;
 
 public class AnimationPanel extends JPanel {
 
 	private static final long serialVersionUID = 1L;
-	private List<BallObject> balls = new ArrayList<BallObject>();
+	private List<PointyObject> balls = new ArrayList<PointyObject>();
 	private Random r = new Random();
 
 	public AnimationPanel() {
@@ -52,22 +53,22 @@ public class AnimationPanel extends JPanel {
 
 	private void setObjectProperties() {
 		for (int i = 0; i < Constants.BALLS_NUMBER; i++) {
-			BallObject ball = new BallObject(new Color(r.nextInt(256), r.nextInt(256), r.nextInt(256)));
-			ball.setPosition(new MVector(Constants.PANEL_ANIMATION_WIDTH / 2.0 - BallObject.BALL_WIDTH / 2,
-					Constants.PANEL_ANIMATION_HEIGHT / 2.0 - BallObject.BALL_HEIGHT / 2));
+			PointyObject ball = new PointyObject(new Color(r.nextInt(256), r.nextInt(256), r.nextInt(256)));
+			ball.setPosition(new MVector(Constants.PANEL_ANIMATION_WIDTH / 2.0 - PointyObject.BALL_WIDTH / 2,
+					Constants.PANEL_ANIMATION_HEIGHT / 2.0 - PointyObject.BALL_HEIGHT / 2));
 			ball.setAcceleration(new MVector(Constants.OBJECT_ACCELERATION, Constants.OBJECT_ACCELERATION));
 			ball.setVelocity(new MVector(Constants.OBJECT_VELOCITY, Constants.OBJECT_VELOCITY));
 			double angle = 360 * r.nextDouble();
 			ball.setAngle(Math.toRadians(angle));
 			balls.add(ball);
 			
-			System.out.println("Ball color: " + ball.getColor() + "   Angle:" + Math.round(angle) +"  radians: "+ Math.toRadians(angle));
+//			System.out.println("Ball color: " + ball.getColor() + "   Angle:" + Math.round(angle) +"  radians: "+ Math.toRadians(angle));
 		}
 		System.out.println("Ball number " + balls.size());
 	}
 
 	private void nextStep() {
-		for (BallObject ball : balls) {
+		for (PointyObject ball : balls) {
 			ball.moveObject();
 		}
 		repaint();
@@ -80,7 +81,7 @@ public class AnimationPanel extends JPanel {
 		g.drawLine(Constants.PANEL_ANIMATION_WIDTH / 2, 0 , Constants.PANEL_ANIMATION_WIDTH / 2, Constants.PANEL_ANIMATION_HEIGHT);
 		g.drawLine(0, Constants.PANEL_ANIMATION_HEIGHT / 2, Constants.PANEL_ANIMATION_WIDTH, Constants.PANEL_ANIMATION_HEIGHT / 2);
 		setBackground(Color.WHITE);
-		for (BallObject ball : balls) {
+		for (PointyObject ball : balls) {
 			ball.drawObject(g);
 		}
 	}

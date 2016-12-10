@@ -1,19 +1,16 @@
 package object;
 
 import java.awt.Color;
+import java.awt.Font;
 import java.awt.Graphics;
-import java.io.IOException;
-import java.util.Random;
 
 import helpers.Constants;
 
 public class BallObject extends AbstractMovingObject {
 
-	public static final Integer BALL_WIDTH = 30;
-	public static final Integer BALL_HEIGHT = 30;
+	public static final Integer BALL_WIDTH = 70;
+	public static final Integer BALL_HEIGHT = 70;
 	private Color color;
-	private Random r = new Random();
-	private boolean deaccelerating = false;
 
 	public BallObject(Color color) {
 		this.color = color;
@@ -21,112 +18,52 @@ public class BallObject extends AbstractMovingObject {
 
 	@Override
 	public void moveObject() {
-
-		moveObjectWithAngle();
+		moveObjectWithAccOnly();
 		checkCollision();
-
 	}
 
 	@Override
 	public void drawObject(Graphics g) {
 		g.setColor(color);
 		g.fillOval(this.position.getX().intValue(), this.position.getY().intValue(), BALL_WIDTH, BALL_HEIGHT);
-		g.setColor(Color.WHITE);
-		g.fillOval(this.position.getX().intValue() + 7, this.position.getY().intValue() + 7, BALL_WIDTH / 3,
-				BALL_HEIGHT / 3);
 		g.setColor(Color.BLUE);
-		g.drawLine(Constants.PANEL_ANIMATION_WIDTH / 2, Constants.PANEL_ANIMATION_HEIGHT / 2,
-				position.getX().intValue() + BALL_WIDTH / 2, position.getY().intValue() + BALL_HEIGHT / 2);
+		g.setFont(new Font("TimesRoman", Font.PLAIN, 12));
+		String textInfoTop = String.format("(%.0f,%.0f)", 
+				position.getX(), position.getY());
+		g.drawString(textInfoTop, position.getX().intValue(), position.getY().intValue() - 4);
+		String textInfoBottom = String.format("s:%.2f a:%.0f", 
+				velocity.getX(), Math.toDegrees(angle));
+		g.drawString(textInfoBottom, position.getX().intValue(), position.getY().intValue() + BALL_HEIGHT + 10);
 	}
 
 	@Override
-	public boolean checkCollision() {
-		if (this.position.getX() < 0) {
-			double newAngle = Math.toRadians(270 + (270 - 90) * r.nextDouble());
-			this.angle = newAngle;
-			velocity.setX(velocity.getX() * 0.8);
-			velocity.setY(velocity.getY() * 0.8);
-			if (deaccelerating) {
-				acceleration.setX(acceleration.getX() * -1);
-				acceleration.setY(acceleration.getY() * -1);
-				deaccelerating = acceleration.getX() < 0.00;
-			}
-		} 
-		if ( this.position.getX() + BALL_WIDTH > Constants.PANEL_ANIMATION_WIDTH) {
-			double newAngle = Math.toRadians(450 + (450 - 270) * r.nextDouble());
-			this.angle = newAngle;
-			velocity.setX(velocity.getX() * 0.8);
-			velocity.setY(velocity.getY() * 0.8);
-			if (deaccelerating) {
-				acceleration.setX(acceleration.getX() * -1);
-				acceleration.setY(acceleration.getY() * -1);
-				deaccelerating = acceleration.getX() < 0.00;
-			}
+	public boolean checkCollision() {		
+		if (this.position.getX() < 0 || this.position.getX() + BALL_WIDTH > Constants.PANEL_ANIMATION_WIDTH) {
+			acceleration.setX(-acceleration.getX());
+			velocity.setX(-velocity.getX());
+			Double posX = this.position.getX() < 0 ? 0 : Constants.PANEL_ANIMATION_WIDTH.doubleValue() - BALL_WIDTH;
+			position.setX(posX);
+			if (Math.abs(velocity.getX()) >= Constants.VELOCITY_LIMITATION) {
+				acceleration.setX(-acceleration.getX());
+			}    
+			return false;
 		}
-		if (this.position.getY() < 0) {
-			double newAngle = Math.toRadians(360 + (360 - 180) * r.nextDouble());
-			this.angle = newAngle;
-			velocity.setX(velocity.getX() * 0.8);
-			velocity.setY(velocity.getY() * 0.8);
-			if (deaccelerating) {
-				acceleration.setX(acceleration.getX() * -1);
-				acceleration.setY(acceleration.getY() * -1);
-				deaccelerating = acceleration.getX() < 0.00;
+		if (this.position.getY() < 0 || this.position.getY() + BALL_HEIGHT > Constants.PANEL_ANIMATION_HEIGHT) {
+			acceleration.setY(-acceleration.getY());
+			Double posY = this.position.getY() < 0 ? 0 : Constants.PANEL_ANIMATION_HEIGHT.doubleValue() - BALL_HEIGHT;
+			velocity.setY(-velocity.getY());
+			position.setY(posY);
+			if (Math.abs(velocity.getY()) >= Constants.VELOCITY_LIMITATION) {
+				acceleration.setY(-acceleration.getY()); 
 			}
+			return false;
 		}
-		if (this.position.getY() + BALL_HEIGHT > Constants.PANEL_ANIMATION_HEIGHT) {
-			double newAngle = Math.toRadians(180 + (180 - 0) * r.nextDouble());
-			this.angle = newAngle;
-			velocity.setX(velocity.getX() * 0.8);
-			velocity.setY(velocity.getY() * 0.8);
-			if (deaccelerating) {
-				acceleration.setX(acceleration.getX() * -1);
-				acceleration.setY(acceleration.getY() * -1);
-				deaccelerating = acceleration.getX() < 0.00;
-			}
-		} 
 		return true;
 	}
 
-	@SuppressWarnings("unused")
 	private void moveObjectWithAccOnly() {
 		velocity.add(acceleration);
 		position.add(velocity);
-	}
-
-	private void moveObjectWithAngle() {
-		
-		// Clear console
-
-		
-		velocity.add(acceleration);
-		if (velocity.getX() > Constants.VELOCITY_LIMITATION * 0.8 
-				|| velocity.getX() < 0)  {
-			acceleration.setX(acceleration.getX() * -1);
-			acceleration.setY(acceleration.getY() * -1);
-			deaccelerating = acceleration.getX() < 0.00;
-		}
-		
-		if (deaccelerating && position.getX() < Constants.PANEL_ANIMATION_WIDTH / 2) {
-			angle = Math.toDegrees(angle);
-			double newAngle = angle - 5.0;
-			this.angle = Math.toRadians(newAngle);
-		} else if (deaccelerating && position.getX() > Constants.PANEL_ANIMATION_WIDTH / 2) {
-			angle = Math.toDegrees(angle);
-			double newAngle = angle + 5.0;
-			this.angle = Math.toRadians(newAngle);
-		}
-		
-		double x = Math.cos(angle) * velocity.getX();
-		double y = Math.sin(angle) * velocity.getY();
-		position.setX(position.getX() + x);
-		position.setY(position.getY() + y);
-		
-		System.out.printf("---- Object properties ---- \n"
-				+ "velocity     :  %.2f  \n"
-				+ "acceleration :  %.2f  \n"
-				+ "angle        :  %.0f deg  \n",
-				velocity.getX(), acceleration.getX(), Math.toDegrees(angle));
 	}
 
 	public Color getColor() {
